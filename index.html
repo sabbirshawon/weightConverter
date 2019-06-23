@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <style>
+    body{
+        margin-top:70px;
+        background:#333;
+        color:#fff;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+            <form>
+              <div class="form-group">
+                <input id="kgInput" type="number" min="0" class="form-control form-control-lg" placeholder="Enter Kilograms...">
+              </div>
+            </form>
+            <div id="output">
+           
+                <div class="card bg-primary mb-2 animated tonneOutput">
+                    <div class="card-body">
+                        <h4>Tonnes:</h4>
+                        <div id="tonneOutput"></div>
+                    </div>
+                </div>
+               
+                <div class="card bg-success mb-2 animated gramOutput">
+                    <div class="card-body">
+                        <h4>Grams:</h4>
+                        <div id="gramOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card bg-danger mb-2 animated miliGramOutput">
+                    <div class="card-body">
+                        <h4>Miligrams:</h4>
+                        <div id="miliGramOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card bg-secondary mb-2 animated microGramOutput">
+                    <div class="card-body">
+                        <h4>Micrograms:</h4>
+                        <div id="microGramOutput"></div>
+                    </div>
+                </div>   
+                
+                <div class="card bg-info mb-2 animated lbsOutput">
+                    <div class="card-body">
+                        <h4>Pounds:</h4>
+                        <div id="lbsOutput"></div>
+                    </div>
+                </div> 
+
+                <div class="card bg-dark mb-2 animated ounceOutput">
+                    <div class="card-body">
+                        <h4>Ounce:</h4>
+                        <div id="ounceOutput"></div>
+                    </div>
+                </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <script>
+        
+        document.getElementById("tonneOutput").innerHTML = 0;
+        document.getElementById("gramOutput").innerHTML = 0;
+        document.getElementById("miliGramOutput").innerHTML = 0;
+        document.getElementById("microGramOutput").innerHTML = 0;
+        document.getElementById("lbsOutput").innerHTML = 0;
+        document.getElementById("ounceOutput").innerHTML = 0;
+
+
+        document.getElementById("kgInput").addEventListener("input", function(e) {
+            let kgs = e.target.value;
+
+            const tonneOutput =  document.querySelector('.tonneOutput');
+            tonneOutput.classList.toggle('jello');
+
+            const gramOutput =  document.querySelector('.gramOutput');
+            gramOutput.classList.toggle('jello');
+
+            const miliGramOutput =  document.querySelector('.miliGramOutput');
+            miliGramOutput.classList.toggle('jello');
+
+            const microGramOutput =  document.querySelector('.microGramOutput');
+            microGramOutput.classList.toggle('jello');
+
+            const lbsOutput =  document.querySelector('.lbsOutput');
+            lbsOutput.classList.toggle('jello');
+
+            const ounceOutput =  document.querySelector('.ounceOutput');
+            ounceOutput.classList.toggle('jello');
+
+            document.getElementById("tonneOutput").innerHTML = kgs / 1000;
+            document.getElementById("gramOutput").innerHTML = kgs * 1000;
+            document.getElementById("miliGramOutput").innerHTML = kgs * 1e+6;
+            document.getElementById("microGramOutput").innerHTML = kgs * 1e+9;
+            document.getElementById("lbsOutput").innerHTML = kgs * 2.205;
+            document.getElementById("ounceOutput").innerHTML = kgs * 35.274;
+           
+        });
+
+
+      </script>
+</body>
+</html>
